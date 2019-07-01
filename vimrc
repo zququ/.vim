@@ -133,13 +133,13 @@ map S :w<CR>
 map <LEADER>rc :e ~/.vim/vimrc<CR>
 
 " Undo operations
-noremap l u
+noremap h u
 " Undo in Insert mode
-inoremap <C-l> <C-u>
+inoremap <C-h> <C-u>
 
 " Insert Key
-noremap k i
-noremap K I
+noremap u i
+noremap U I
 
 " Copy to system clipboard
 vnoremap Y :w !xclip -i -sel c<CR>
@@ -152,7 +152,7 @@ noremap - Nzz
 " Duplicate words
 map <LEADER>fd /\(\<\w\+\>\)\_s*\1
 
-" Others
+" Others add blank line down
 map <LEADER>o o<Esc>u
 
 
@@ -162,27 +162,27 @@ map <LEADER>o o<Esc>u
 "
 " New cursor movement (the default arrow keys are used for resizing windows)
 "     ^
-"     u
-" < n   i >
-"     e
+"     i
+" < j   l >
+"     k
 "     v
-noremap u k
-noremap n h
-noremap e j
-noremap i l
+noremap i k
+noremap j h
+noremap k j
+noremap l l
 " U/E keys for 5 times u/e (faster navigation)
-noremap U 5k
-noremap E 5j
+noremap I 5k
+noremap K 5j
 " N key: go to the start of the line
 noremap N 0
 " I key: go to the end of the line
-noremap I $
+noremap M $
 
 " Faster in-line navigation
 noremap W 5w
 noremap B 5b
 " set h (same as n, cursor left) to 'end of word'
-noremap h e
+noremap e e
 
 " Ctrl + U or E will move up/down the view port without moving the cursor
 noremap <C-U> 5<C-y>
@@ -196,20 +196,20 @@ inoremap <C-E> <Esc>5<C-e>a
 " ===
 " Use <space> + new arrow keys for moving the cursor around windows
 map <LEADER>w <C-w>w
-map <LEADER>u <C-w>k
-map <LEADER>e <C-w>j
-map <LEADER>n <C-w>h
-map <LEADER>i <C-w>l
+map <LEADER>i <C-w>k
+map <LEADER>k <C-w>j
+map <LEADER>j <C-w>h
+map <LEADER>l <C-w>l
 "map <LEADER>r <C-w>r
 
 " Disabling the default s key
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-map su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-map se :set splitbelow<CR>:split<CR>
-map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-map si :set splitright<CR>:vsplit<CR>
+map sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+map si :set splitbelow<CR>:split<CR>
+map sj :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+map sl :set splitright<CR>:vsplit<CR>
 
 " Resize splits with arrow keys
 map <up> :res +5<CR>
@@ -233,11 +233,11 @@ noremap srv <C-w>b<C-w>H
 " Create a new tab with tu
 map tu :tabe<CR>
 " Move around tabs with tn and ti
-map tn :-tabnext<CR>
-map ti :+tabnext<CR>
+map tj :-tabnext<CR>
+map tl :+tabnext<CR>
 " Move the tabs with tmn and tmi
-map tmn :-tabmove<CR>
-map tmi :+tabmove<CR>
+map tmj :-tabmove<CR>
+map tml :+tabmove<CR>
 
 
 " ===
@@ -245,7 +245,7 @@ map tmi :+tabmove<CR>
 " ===
 
 " Press space twice to jump to the next '<++>' and edit it
-map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Spelling Check with <space>sc
 map <LEADER>sc :set spell!<CR>
@@ -436,10 +436,10 @@ let NERDTreeMapUpdir = ""
 let NERDTreeMapUpdirKeepOpen = "l"
 let NERDTreeMapOpenSplit = ""
 let NERDTreeOpenVSplit = ""
-let NERDTreeMapActivateNode = "i"
+let NERDTreeMapActivateNode = "u"
 let NERDTreeMapOpenInTab = "o"
 let NERDTreeMapPreview = ""
-let NERDTreeMapCloseDir = "n"
+let NERDTreeMapCloseDir = "j"
 let NERDTreeMapChangeRoot = "y"
 
 
@@ -544,11 +544,15 @@ map <LEADER>gy :Goyo<CR>
 " ===
 " === CtrlP
 " ===
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtSelectMove("j")':   ['<c-e>', '<down>'],
-  \ 'PrtSelectMove("k")':   ['<c-u>', '<up>'],
-  \ }
+"let g:ctrlp_prompt_mappings = {
+"  \ 'PrtSelectMove("j")':   ['<c-e>', '<down>'],
+"  \ 'PrtSelectMove("k")':   ['<c-u>', '<up>'],
+"  \ }
 
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtSelectMove("j")':   ['<down>'],
+  \ 'PrtSelectMove("k")':   ['<up>'],
+  \ }
 
 " ===
 " === vim-signiture
@@ -582,7 +586,7 @@ let g:SignatureMap = {
 " === Undotree
 " ===
 let g:undotree_DiffAutoOpen = 0
-map L :UndotreeToggle<CR>
+map H :UndotreeToggle<CR>
 
 " ===
 " === UltiSnip

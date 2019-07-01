@@ -79,7 +79,7 @@
 | `sn`    | Create a new vertical split screen and place it left to the current window  |
 | `si`    | Create a new vertical split screen and place it right to the current window |
 | `sv`    | Set the two splits to be vertical                                           |
-| `sh     | Set the two splits to be horizontal                                         |
+| `sh`    | Set the two splits to be horizontal                                         |
 
 #### 2.2 Moving the Cursor Between Different Windows
 
@@ -147,4 +147,3 @@ Toggle "Table Editing Mode" with `<SPACE>tm` (equals to command `:TableModeToggl
 |  _  |  __/ | | (_) |
 |_| |_|\___|_|_|\___/ 
 ```
-
